@@ -6,13 +6,16 @@ type Props = {
     hasLink?: boolean;
 };
 
-export default function TagListItem({ tag, hasLink = true }: Props) {
+const TagListItem = ({ tag, hasLink = true }: Props) => {
+
     if (hasLink) {
         return (
-            <Link href={`/tags/${tag.id}`} className="">
-                #{tag.name}
+            <Link href={`/tags/${tag.id}`} className="bg-gray-700 px-2 py-1 text-sm rounded-md whitespace-nowrap text-gray-300">
+                <p>#{tag.name}</p>
             </Link>
         );
     }
-    return <span className="">#{tag.name}</span>;
-}
+    return <span className="bg-gray-700 px-2 py-1 text-sm rounded-md whitespace-nowrap text-gray-300">#{tag.name}</span>;
+};
+
+export default TagListItem;

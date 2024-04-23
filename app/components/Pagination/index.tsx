@@ -15,7 +15,7 @@ export default function Pagination({ totalCount, current = 1, basePath = '', q }
             {pages.map((p) => (
                 <li className="" key={p}>
                     {current !== p ? (
-                        <Link href={`${basePath}/p/${p}` + (q ? `?q=${q}` : '')} className={styles.item}>
+                        <Link href={`${basePath}/p/${p}` + (q ? `?q=${q}` : '')} className="">
                             {p}
                         </Link>
                     ) : (
