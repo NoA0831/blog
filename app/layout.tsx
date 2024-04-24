@@ -22,7 +22,7 @@ type Props = {
 export default async function RootLayout({ children }: Props) {
     return (
         <html lang="ja">
-            <body>
+            <body className="">
                 <Header />
                     <main className="">{children}</main>
                 <Footer />
