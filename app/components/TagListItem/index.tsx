@@ -7,15 +7,18 @@ type Props = {
 };
 
 const TagListItem = ({ tag, hasLink = true }: Props) => {
-
     if (hasLink) {
         return (
-            <Link href={`/tags/${tag.id}`} className="bg-gray-700 px-2 py-1 text-sm rounded-md whitespace-nowrap text-gray-300">
-                <p>#{tag.name}</p>
+            <Link href={`/tags/${tag.id}`} className="inline-block bg-gray-700 px-2 py-1 text-sm rounded-md whitespace-nowrap text-gray-300">
+                #{tag.name}
             </Link>
         );
     }
-    return <span className="bg-gray-700 px-2 py-1 text-sm rounded-md whitespace-nowrap text-gray-300">#{tag.name}</span>;
+    return (
+        <span className="inline-block bg-gray-700 px-2 py-1 text-sm rounded-md whitespace-nowrap text-gray-300">
+            #{tag.name}
+        </span>
+    );
 };
 
 export default TagListItem;
