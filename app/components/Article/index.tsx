@@ -1,8 +1,8 @@
-import parse from 'html-react-parser';
 import { type Article } from '../../libs/microcms';
 import PublishedDate from '../Date';
 import TagList from '../TagList';
 import { formatRichText } from '@/app/libs/utils';
+import styles from './index.module.css';
 
 type Props = {
     data: Article;
@@ -20,13 +20,14 @@ export default function Article({ data }: Props) {
             )}
             <div className="flex items-center mb-3">
                 <img src="/created-icon.svg" alt="Created Icon" className="h-4 mr-2" />
-                <PublishedDate date={data.publishedAt} />
+                <PublishedDate date={data.publishedAt || " "} />
             </div>
             <TagList tags={data.tags} />
             <p className="m-2">{data.description}</p>
-            <div className="m-4 p-4" dangerouslySetInnerHTML={{
-                __html: `${ formatRichText(data.content) }`,
-            }}>
+            <div className={styles.content}
+                dangerouslySetInnerHTML={{
+                    __html: `${ formatRichText(data.content) }`,
+                }}>
             </div>
         </main>
     );
